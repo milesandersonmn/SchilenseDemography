@@ -121,6 +121,10 @@ NGHOST$ sfspool -1
 0
 //historical event: time, source, sink, migrants, new size, growth rate, migr. matrix
 6 historical event
+TJOINCV1$ 0 31 1 1 0 0
+TJOINCV1$ 1 31 1 1 0 0
+TJOINCV1$ 2 31 1 1 0 0
+TJOINCV2$ 3 32 1 1 0 0
 TDIV1$ 0 6 1 RES1$ 0 0
 TDIV2$ 1 6 1 RES2$ 0 0
 TDIV3$ 2 6 1 RES3$ 0 0
