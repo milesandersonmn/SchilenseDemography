@@ -1,0 +1,24 @@
+// Priors and rules file
+// *********************
+[PARAMETERS]
+//#isInt? #name #dist.#min #max
+//all Ns are in number of haploid individuals
+1 NCV1$ unif 1000 100000 output
+1 NCV2$ unif 1000 100000 output
+1 NCV3$ unif 1000 100000 output
+1 NCV4$ unif 1000 100000 output
+1 NSCG$ unif 1000 100000 output
+1 NSHG$ unif 1000 100000 output
+1 NGHOST$ unif 1000 100000 output
+0 RES1$ unif 1e-3 10 output
+0 RES2$ unif 1e-3 10 output
+0 RES3$ unif 1e-3 10 output
+0 RES4$ unif 1e-3 10 output
+0 RES5$ unif 1e-3 10 output
+0 RES6$ unif 1e-3 10 output
+1 TDIV1$ unif 10 100000 output
+1 TDIV2$ unif 10 100000 output
+1 TDIV3$ unif 10 100000 output
+1 TDIV4$ unif 10 100000 output
+1 TDIVSCG$ unif 10 100000 output
+1 TDIVSHG$ unif 10 100000 output
