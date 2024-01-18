@@ -1,22 +1,115 @@
 //Number of population samples (demes)
-7 samples to simulate :
+38 samples to simulate :
 //Population effective sizes (number of genes)
-NCV1$
-NCV2$
-NCV3$
-NCV4$
-NSCG$
-NSHG$
-NGHOST$
+NLA1958$ sfspool 0
+NLA1960$ sfspool 0
+NLA2981A$ sfspool 0
+NLA3115$ sfspool 1
+NLA1968$ sfspool 1
+NLA3114$ sfspool 1
+NLA3112$ sfspool 1
+NLA3111$ sfspool 1
+NLA1963$ sfspool 2
+NLA1967$ sfspool 2
+NLA2965$ sfspool 2
+NLA1965$ sfspool 2
+NLA2751$ sfspool 3
+NLA2753$ sfspool 3
+NLA2754$ sfspool 3
+NLA2755$ sfspool 3
+NLA4109$ sfspool 4
+NLA4108$ sfspool 4
+NLA4107$ sfspool 4
+NLA4106$ sfspool 4
+NLA4338$ sfspool 4
+NLA4339$ sfspool 4
+NLA2884$ sfspool 5
+NLA4329$ sfspool 5
+NLA4330$ sfspool 5
+NLA4332$ sfspool 5
+NLA4117A$ sfspool 5
+NLA4118$ sfspool 5
+NLA4119$ sfspool 5
+NLA4335$ sfspool 5
+NLA2880$ sfspool 5
+NCV1$ sfspool -1
+NCV2$ sfspool -1
+NCV3$ sfspool -1
+NCV4$ sfspool -1
+NSCG$ sfspool -1
+NSHG$ sfspool -1
+NGHOST$ sfspool -1
 //Samples sizes
-56
-96
-70
-76
-12
+20
 18
+18
+18
+20
+18
+20
+20
+18
+16
+18
+18
+20
+18
+18
+20
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+0
+0
+0
+0
+0
+0
 0
 //Growth rates : negative growth implies population expansion
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
 0
 0
 0
