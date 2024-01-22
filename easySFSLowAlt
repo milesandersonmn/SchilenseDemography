@@ -1,0 +1,1 @@
+./easySFS.py -i ../polarized.SNP.pruned.164samples.AB.reheader.vcf.gz -p ../sampleSubsetPopDefinitionsLowAlt.txt --proj=20,18,18,20,12,18 -a --unfolded -f
