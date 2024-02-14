@@ -1,0 +1,13 @@
+##Add ancestral allele field (AA)
+
+../VCFpolarizer/ancestralAlleleCaller.py Schil_capture_variants_AllChroms.decomposedVariants.filtered.maxMissing.sorted.SNPs.AAheader.vcf.gz \
+Spenn_LA0716_ERR418107 Schil_capture_variants_AllChroms.processed.AA.vcf.gz
+
+##Filter high altitude samples
+
+bcftools view -S sampleSubsetHighAlt.txt -Oz -o Schil_capture_variants_AllChroms.processed.AA.HighAlt.vcf.gz Schil_capture_variants_AllChroms.processed.AA.vcf.gz
+
+##Rename mislabelled samples
+
+bcftools reheader -s sampleSubsetHighAlt.txt -o Schil_capture_variants_AllChroms.processed.AA.HighAlt.reheader.vcf.gz Schil_capture_variants_AllChroms.processed.AA.HighAlt.vcf.gz
+
