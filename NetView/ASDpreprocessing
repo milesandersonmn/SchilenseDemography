@@ -1,1 +1,3 @@
+bcftools annotate -x FMT Schil_capture_variants_AllChroms.processed.AA.captureRegions.164samples.vcf.gz -Oz -o Schil_capture_variants_AllChroms.processed.AA.captureRegions.164samples.GTonly.vcf.gz
 
+./asd --weighted --vcf ../../../VCFs/Schil_capture_variants_AllChroms.processed.AA.captureRegions.164samples.GTonly.vcf.gz --threads 8
