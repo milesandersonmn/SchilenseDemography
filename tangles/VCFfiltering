@@ -1,0 +1,4 @@
+##VCF must have no missing data, a minimum AC of 1 and maximum of 327 (1 and n-1) and have at least one homozygote alternate and reference individual for the cuts to segregate individuals on either side
+
+bcftools view -c 2 -C 327 Schil_capture_variants_AllChroms.processed.AA.captureRegions.164samples.noMissing.vcf -i 'N_PASS(GT="AA" && GT="RR")>=1' \
+-o Schil_capture_variants_AllChroms.processed.AA.captureRegions.164samples.noMissing.minAC.maxAC.vcf
