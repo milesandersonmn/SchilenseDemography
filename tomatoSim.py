@@ -1,6 +1,8 @@
 import msprime
 import numpy
+import os
 
+os.chdir("/home/milesanderson/PhD/msprime/VCFs")
 # %%
 #Initial parameters
 generation_time=5
@@ -46,11 +48,13 @@ demography.add_population(name="CV1", initial_size=8213, growth_rate=r_CV1)
 demography.add_population(name="CV2", initial_size=3000, initially_active=True, growth_rate=r_CV2)
 demography.add_population(name="CV3", initial_size=5403, growth_rate=r_CV3)
 demography.add_population(name="CV4", initial_size=1002, growth_rate=r_CV4)
+
 demography.set_symmetric_migration_rate(["CV1", "CV2"], 3.79171037934382e-05)
 demography.set_symmetric_migration_rate(["CV2", "CV3"], 5.00432022420341e-05)
 demography.set_symmetric_migration_rate(["CV2", "CV4"], 6.12623886707099e-05)
 demography.set_symmetric_migration_rate(["CV2", "SHG"], 8.95358767563108e-05)
 demography.set_symmetric_migration_rate(["CV2", "SCG"], 6.38552836678913e-06)
+
 demography.add_population_parameters_change(time=TB_SHG, population="SHG", initial_size=Nsplit_SHG, growth_rate=0)
 demography.add_population_parameters_change(time=TB_SCG, population="SCG", initial_size=Nsplit_SCG, growth_rate=0)
 demography.add_population_parameters_change(time=TB_CV1, population="CV1", initial_size=Nsplit_CV1, growth_rate=0)
@@ -58,6 +62,11 @@ demography.add_population_parameters_change(time=TB_CV2, population="CV2", initi
 demography.add_population_parameters_change(time=TB_CV3, population="CV3", initial_size=Nsplit_CV3, growth_rate=0)
 demography.add_population_parameters_change(time=TB_CV4, population="CV4", initial_size=Nsplit_CV4, growth_rate=0)
 
+demography.add_symmetric_migration_rate_change(time=TB_CV1, populations=["CV1","CV2"], rate=9.98239666437443e-05)
+demography.add_symmetric_migration_rate_change(time=TB_CV3, populations=["CV2","CV3"], rate=0.000214905866891655)
+demography.add_symmetric_migration_rate_change(time=TB_CV4, populations=["CV2","CV4"], rate=3.95890041650506e-05)
+demography.add_symmetric_migration_rate_change(time=TB_SHG, populations=["CV2","SHG"], rate=0)
+demography.add_symmetric_migration_rate_change(time=TB_SCG, populations=["CV2","SCG"], rate=0)
 
 demography.add_population_split(time=T_SHG, derived=["SHG"], ancestral="CV2")
 demography.add_population_split(time=T_SCG, derived=["SCG"], ancestral="CV2")
@@ -65,24 +74,35 @@ demography.add_population_split(time=T_CV4, derived=["CV4"], ancestral="CV2")
 demography.add_population_split(time=T_CV3, derived=["CV3"], ancestral="CV2")
 demography.add_population_split(time=T_CV1, derived=["CV1"], ancestral="CV2")
 
+demography.sort_events()
 demography
 
+import demes
+import demesdraw
+import matplotlib.pyplot as plt
+
+graph = msprime.Demography.to_demes(demography)
+fig, ax = plt.subplots()  # use plt.rcParams["figure.figsize"]
+demesdraw.tubes(graph, seed=1)
+plt.show()
 # %%
 import multiprocessing
 
 def printVCF(i):
     id = str(i)
     ts = msprime.sim_ancestry(
-        {"CV1": 10, "CV2": 10, "CV3": 10, "CV4": 10, "SHG": 10, "SCG": 10}, 
+        {"CV1": 10, "CV2": 10, "CV3": 10, "CV4": 10, "SHG": 7, "SCG": 6}, 
         demography=demography, 
+        ploidy=2,
         model="dtwf", 
         sequence_length=1000
         )
     mts = msprime.sim_mutations(ts, rate = 0.00000001)
     vcf = open(id + ".vcf", 'w')
     mts.write_vcf(vcf, contig_id=id)
-    vcf.clos
+    vcf.close
 if __name__ == '__main__':
     with multiprocessing.Pool() as pool:
-        for result in pool.map(printVCF, range(5)):
+        for result in pool.map(printVCF, range(100)):
             print(result)
+
